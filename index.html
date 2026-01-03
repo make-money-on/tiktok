@@ -3,66 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Earning by Watching Video</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Full Screen Image</title>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
+        /* Reset defaults to ensure no white borders */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Prevent scrollbars */
+            background-color: #000; /* Dark background for better contrast */
         }
-        /* Custom animation for the arrows */
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-            50% { transform: translateY(10%); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+        /* Container to center content */
+        .image-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .animate-bounce-slow {
-            animation: bounce-slow 2s infinite;
+
+        /* The image itself */
+        #main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the whole screen without stretching, cropping if necessary */
+            display: block;
+            opacity: 0; /* Hidden initially for fade-in effect */
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Error message styling */
+        .error-message {
+            display: none;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen text-white p-6 relative overflow-hidden">
+<body>
 
-    <!-- Background decorative blur (optional aesthetic enhancement) -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-pink-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 pointer-events-none"></div>
-
-    <!-- Main Container -->
-    <main class="flex flex-col items-center max-w-md w-full text-center space-y-8 z-10">
-        
-        <!-- Header Text -->
-        <h1 class="text-2xl md:text-3xl font-medium tracking-wide">
-            TikTok Earning Money
-        </h1>
-
-        <!-- Arrow 1 -->
-        <div class="animate-bounce-slow">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+    <div class="image-container">
+        <img 
+            id="main-image" 
+            src="https://cdn.removal.ai/web/v25.1/images/home/who1.jpg" 
+            alt="Full screen display"
+            onload="this.style.opacity = 1"
+            onerror="handleError()"
+        >
+        <div class="error-message" id="error-text">
+            <h2>Image could not be loaded</h2>
+            <p>Please check the URL or your internet connection.</p>
         </div>
+    </div>
 
-        <!-- Instructions Section -->
-        <div class="space-y-3">
-            <h2 class="text-1xl md:text-2xl font-bold uppercase tracking-tight leading-tight">
-                DOWNLOAD TIK TOK USD
-            </h2>
-            <p class="text-gray-300 text-sm md:text-base leading-relaxed px-4">
-                Please download the app using the button below only, not directly from the app store
-            </p>
-        </div>
+    <script>
+        function handleError() {
+            document.getElementById('main-image').style.display = 'none';
+            document.getElementById('error-text').style.display = 'block';
+        }
+    </script>
 
-        <!-- Arrow 2 -->
-        <div class="animate-bounce-slow delay-75">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-        </div>
-<p class="text-gray-250 text-sm md:text-base leading-relaxed px-4">
-                If the app is already installed, please delete it and download it only using the button
-            </p>
-      <!-- Arrow 1 -->
-        <div class="animate-bounce-slow">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+</body>
+</html>            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
         </div>
